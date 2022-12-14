@@ -1,0 +1,2447 @@
+{
+	"info": {
+		"_postman_id": "671d6793-44b4-4548-835a-ab782b0c71db",
+		"name": "NS1 ManagedDNS API Collection",
+		"description": "This collection documents the NS1 REST API as packaged in NS1's DNS, DHCP & IP Address Management (DDI) software platform.",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "account",
+			"item": [
+				{
+					"name": "2factor",
+					"item": [
+						{
+							"name": "get 2factor",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "X-NSONE-Key",
+										"value": "{{org-api-key}}"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "https://{{web-host}}/v1/account/2factor",
+									"protocol": "https",
+									"host": [
+										"{{web-host}}"
+									],
+									"path": [
+										"v1",
+										"account",
+										"2factor"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "update 2factor",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "X-NSONE-Key",
+										"value": "{{org-api-key}}"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"enforce\": false\r\n}"
+								},
+								"url": {
+									"raw": "https://{{web-host}}/v1/account/2factor",
+									"protocol": "https",
+									"host": [
+										"{{web-host}}"
+									],
+									"path": [
+										"v1",
+										"account",
+										"2factor"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "verify 2factor with TOTP",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "X-NSONE-Key",
+										"value": "{{org-api-key}}"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"token\": \"013602\"\n}"
+								},
+								"url": {
+									"raw": "https://{{web-host}}/v1/account/2factor/verify",
+									"protocol": "https",
+									"host": [
+										"{{web-host}}"
+									],
+									"path": [
+										"v1",
+										"account",
+										"2factor",
+										"verify"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "reset a user's 2fa",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "X-NSONE-Key",
+										"value": "{{org-api-key}}"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "https://{{web-host}}/v1/account/2factor/reset/{{username}}",
+									"protocol": "https",
+									"host": [
+										"{{web-host}}"
+									],
+									"path": [
+										"v1",
+										"account",
+										"2factor",
+										"reset",
+										"{{username}}"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "users",
+					"item": [
+						{
+							"name": "get list of users",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "X-NSONE-Key",
+										"value": "{{operator-api-key}}!{{org-id}}"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "https://{{web-host}}/v1/account/users",
+									"protocol": "https",
+									"host": [
+										"{{web-host}}"
+									],
+									"path": [
+										"v1",
+										"account",
+										"users"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "get a user's info",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "X-NSONE-Key",
+										"value": "{{org-api-key}}"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "https://{{web-host}}/v1/account/users/{{username}}",
+									"protocol": "https",
+									"host": [
+										"{{web-host}}"
+									],
+									"path": [
+										"v1",
+										"account",
+										"users",
+										"{{username}}"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "add a user",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"type": "text/javascript",
+										"exec": [
+											"var user = JSON.parse(responseBody);",
+											"postman.setEnvironmentVariable(\"invite-token\", user.invite_token);"
+										]
+									}
+								}
+							],
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "X-NSONE-Key",
+										"value": "{{operator-api-key}}!{{org-id}}"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\t\"username\":\"{{username}}\",\n\t\"name\":\"{{full-name}}\",\n\t\"email\":\"{{email}}\"\n}"
+								},
+								"url": {
+									"raw": "https://{{web-host}}/v1/account/users/{{username}}",
+									"protocol": "https",
+									"host": [
+										"{{web-host}}"
+									],
+									"path": [
+										"v1",
+										"account",
+										"users",
+										"{{username}}"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "can't make a duplicate user",
+									"originalRequest": {
+										"method": "PUT",
+										"header": [
+											{
+												"key": "X-NSONE-Key",
+												"value": "{{operator-api-key}}!{{org_id}}"
+											},
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\"username\":\"{{user-name}}\", \"name\":\"{{full-name}}\", \"email\":\"{{email}}\"}"
+										},
+										"url": {
+											"raw": "https://{{web-host}}/v1/account/users/{{user-name}}",
+											"protocol": "https",
+											"host": [
+												"{{web-host}}"
+											],
+											"path": [
+												"v1",
+												"account",
+												"users",
+												"{{user-name}}"
+											]
+										}
+									},
+									"status": "Bad Request",
+									"code": 400,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Cache-Control",
+											"value": "no-cache",
+											"name": "Cache-Control",
+											"description": "Tells all caching mechanisms from server to client whether they may cache this object. It is measured in seconds"
+										},
+										{
+											"key": "Content-Length",
+											"value": "154",
+											"name": "Content-Length",
+											"description": "The length of the response body in octets (8-bit bytes)"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json",
+											"name": "Content-Type",
+											"description": "The mime type of this content"
+										},
+										{
+											"key": "Date",
+											"value": "Thu, 21 Jun 2018 19:30:45 GMT",
+											"name": "Date",
+											"description": "The date and time that the message was sent"
+										},
+										{
+											"key": "Expires",
+											"value": "0",
+											"name": "Expires",
+											"description": "Gives the date/time after which the response is considered stale"
+										},
+										{
+											"key": "Pragma",
+											"value": "no-cache",
+											"name": "Pragma",
+											"description": "Implementation-specific headers that may have various effects anywhere along the request-response chain."
+										},
+										{
+											"key": "Server",
+											"value": "NSONE API v1",
+											"name": "Server",
+											"description": "A name for the server"
+										},
+										{
+											"key": "X-RateLimit-By",
+											"value": "customer",
+											"name": "X-RateLimit-By",
+											"description": "Custom header"
+										},
+										{
+											"key": "X-RateLimit-Limit",
+											"value": "1000",
+											"name": "X-RateLimit-Limit",
+											"description": "Custom header"
+										},
+										{
+											"key": "X-RateLimit-Period",
+											"value": "1",
+											"name": "X-RateLimit-Period",
+											"description": "Custom header"
+										},
+										{
+											"key": "X-RateLimit-Remaining",
+											"value": "999",
+											"name": "X-RateLimit-Remaining",
+											"description": "Custom header"
+										}
+									],
+									"cookie": [],
+									"body": "{\"message\":\"failed to insert new user contact: \\\"E11000 duplicate key error collection: ns1.users index: login_1 dup key: { : \\\\\\\"markmpeterson\\\\\\\" }\\\"\"}\n"
+								}
+							]
+						},
+						{
+							"name": "update a user",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "X-NSONE-Key",
+										"value": "{{org-api-key}}"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"permissions\": {\n        \"account\": {\n            \"manage_users\": false,\n            \"manage_teams\": false,\n            \"view_activity_log\": false,\n            \"manage_account_settings\": false,\n            \"manage_apikeys\": false,\n            \"manage_ip_whitelist\": false,\n            \"manage_auth_tags\": true\n        },\n        \"monitoring\": {\n            \"manage_jobs\": false,\n            \"manage_lists\": false,\n            \"view_jobs\": false\n        },\n        \"ipam\": {\n            \"view_ipam\": true,\n            \"manage_ipam\": true\n        },\n        \"dns\": {\n            \"zones_allow\": [],\n            \"manage_zones\": true,\n            \"zones_deny\": [],\n            \"view_zones\": true,\n            \"zones_allow_by_default\": true\n        },\n        \"dhcp\": {\n            \"manage_dhcp\": true,\n            \"view_dhcp\": true\n        },\n        \"security\": {\n            \"manage_global_2fa\": false\n        },\n        \"data\": {\n            \"push_to_datafeeds\": true,\n            \"manage_datasources\": true,\n            \"manage_datafeeds\": true\n        }\n    }\n}"
+								},
+								"url": {
+									"raw": "https://{{web-host}}/v1/account/users/{{username}}",
+									"protocol": "https",
+									"host": [
+										"{{web-host}}"
+									],
+									"path": [
+										"v1",
+										"account",
+										"users",
+										"{{username}}"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "delete user",
+							"request": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "X-NSONE-Key",
+										"type": "text",
+										"value": "{{org-api-key}}"
+									}
+								],
+								"url": {
+									"raw": "https://{{web-host}}/v1/account/users/{{username}}",
+									"protocol": "https",
+									"host": [
+										"{{web-host}}"
+									],
+									"path": [
+										"v1",
+										"account",
+										"users",
+										"{{username}}"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									""
+								]
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									""
+								]
+							}
+						}
+					]
+				},
+				{
+					"name": "apikeys",
+					"item": [
+						{
+							"name": "get list of apikeys",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "X-NSONE-Key",
+										"value": "{{org-api-key}}"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "https://{{web-host}}/v1/account/apikeys",
+									"protocol": "https",
+									"host": [
+										"{{web-host}}"
+									],
+									"path": [
+										"v1",
+										"account",
+										"apikeys"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "get apikey's info",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "X-NSONE-Key",
+										"value": "{{org-api-key}}"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "https://{{web-host}}/v1/account/apikeys/{{org-api-key-id}}",
+									"protocol": "https",
+									"host": [
+										"{{web-host}}"
+									],
+									"path": [
+										"v1",
+										"account",
+										"apikeys",
+										"{{org-api-key-id}}"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "create new api key",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"type": "text/javascript",
+										"exec": [
+											"var apikey = JSON.parse(responseBody);",
+											"postman.setEnvironmentVariable(\"org-api-key\", apikey.key);",
+											"postman.setEnvironmentVariable(\"org-api-key-id\", apikey.id);"
+										]
+									}
+								}
+							],
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "X-NSONE-Key",
+										"value": "{{org-api-key}}"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"permissions\": {\n        \"data\": {\n            \"manage_datafeeds\": true,\n            \"manage_datasources\": true\n        },\n        \"account\": {\n            \"manage_teams\": true,\n            \"manage_apikeys\": true,\n            \"manage_users\": true,\n            \"manage_account_settings\": true\n        },\n        \"dns\": {\n            \"zones_allow\": [],\n            \"zones_allow_by_default\": true,\n            \"manage_zones\": true,\n            \"view_zones\": true\n        }\n    },\n    \"teams\": [],\n    \"name\": \"newapikeyforme2\",\n    \"ip_whitelist\": [\n        \"1.2.3.5\"\n    ],\n    \"ip_whitelist_strict\": true\n}"
+								},
+								"url": {
+									"raw": "https://{{web-host}}/v1/account/apikeys",
+									"protocol": "https",
+									"host": [
+										"{{web-host}}"
+									],
+									"path": [
+										"v1",
+										"account",
+										"apikeys"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "update api key",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"type": "text/javascript",
+										"exec": [
+											"var apikey = JSON.parse(responseBody);",
+											"postman.setEnvironmentVariable(\"org-api-key\", apikey.key);",
+											"postman.setEnvironmentVariable(\"org-api-key-id\", apikey.id);"
+										]
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "X-NSONE-Key",
+										"value": "{{org-api-key}}"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"teams\": [],\r\n  \"name\": \"{{org-api-key-name}}\"\r\n}"
+								},
+								"url": {
+									"raw": "https://{{web-host}}/v1/account/apikeys/{{org-api-key-id}}",
+									"protocol": "https",
+									"host": [
+										"{{web-host}}"
+									],
+									"path": [
+										"v1",
+										"account",
+										"apikeys",
+										"{{org-api-key-id}}"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "delete apikey",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "X-NSONE-Key",
+										"value": "{{org-api-key}}"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "https://{{web-host}}/v1/account/apikeys/{{org-api-key-id}}",
+									"protocol": "https",
+									"host": [
+										"{{web-host}}"
+									],
+									"path": [
+										"v1",
+										"account",
+										"apikeys",
+										"{{org-api-key-id}}"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									""
+								]
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									""
+								]
+							}
+						}
+					]
+				},
+				{
+					"name": "check a username for existence",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://{{web-host}}/v1/account/checkusername",
+							"protocol": "https",
+							"host": [
+								"{{web-host}}"
+							],
+							"path": [
+								"v1",
+								"account",
+								"checkusername"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "bill at a glance",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-NSONE-Key",
+								"value": "{{org-api-key}}"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "https://{{web-host}}/v1/account/billataglance",
+							"protocol": "https",
+							"host": [
+								"{{web-host}}"
+							],
+							"path": [
+								"v1",
+								"account",
+								"billataglance"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "resource watchlist",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-NSONE-Key",
+								"value": "{{org-api-key}}"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "https://{{web-host}}/v1/resource/watchlist",
+							"protocol": "https",
+							"host": [
+								"{{web-host}}"
+							],
+							"path": [
+								"v1",
+								"resource",
+								"watchlist"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "notifications",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-NSONE-Key",
+								"value": "{{org-api-key}}"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "https://{{web-host}}/v1/account/notifications",
+							"protocol": "https",
+							"host": [
+								"{{web-host}}"
+							],
+							"path": [
+								"v1",
+								"account",
+								"notifications"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get activity",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-NSONE-Key",
+								"value": "{{operator-api-key}}!{{org-id}}"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "https://{{web-host}}/v1/account/activity",
+							"protocol": "https",
+							"host": [
+								"{{web-host}}"
+							],
+							"path": [
+								"v1",
+								"account",
+								"activity"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "data sources & feeds",
+			"item": [
+				{
+					"name": "get source types",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-NSONE-Key",
+								"value": "{{org-api-key}}"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "https://{{web-host}}/v1/data/sourcetypes",
+							"protocol": "https",
+							"host": [
+								"{{web-host}}"
+							],
+							"path": [
+								"v1",
+								"data",
+								"sourcetypes"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get data sources",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-NSONE-Key",
+								"value": "{{org-api-key}}"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "https://{{web-host}}/v1/data/sources",
+							"protocol": "https",
+							"host": [
+								"{{web-host}}"
+							],
+							"path": [
+								"v1",
+								"data",
+								"sources"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "create new data source",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"var datasource = JSON.parse(responseBody);",
+									"postman.setEnvironmentVariable(\"datasource-id\", datasource.id);"
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "X-NSONE-Key",
+								"value": "{{org-api-key}}"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"name\":\"NS1 Feed\",\"config\":{},\"sourcetype\":\"nsone_v1\"}"
+						},
+						"url": {
+							"raw": "https://{{web-host}}/v1/data/sources",
+							"protocol": "https",
+							"host": [
+								"{{web-host}}"
+							],
+							"path": [
+								"v1",
+								"data",
+								"sources"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update a data source",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "X-NSONE-Key",
+								"value": "{{org-api-key}}"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"sourcetype\":\"cloudwatch\", \"name\":\"My Cloudwatch Topic2\", \"config\":{}}"
+						},
+						"url": {
+							"raw": "https://{{web-host}}/v1/data/sources/{{datasource-id}}",
+							"protocol": "https",
+							"host": [
+								"{{web-host}}"
+							],
+							"path": [
+								"v1",
+								"data",
+								"sources",
+								"{{datasource-id}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete a zone",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "X-NSONE-Key",
+								"value": "{{org-api-key}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "https://{{web-host}}/v1/data/sources/{{datasource-id}}",
+							"protocol": "https",
+							"host": [
+								"{{web-host}}"
+							],
+							"path": [
+								"v1",
+								"data",
+								"sources",
+								"{{datasource-id}}"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "monitoring",
+			"item": [
+				{
+					"name": "get monitoring jobs",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-NSONE-Key",
+								"value": "{{org-api-key}}"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "https://{{web-host}}/v1/monitoring/jobs",
+							"protocol": "https",
+							"host": [
+								"{{web-host}}"
+							],
+							"path": [
+								"v1",
+								"monitoring",
+								"jobs"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get a monitoring job",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-NSONE-Key",
+								"value": "{{org-api-key}}"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "https://{{web-host}}/v1/monitoring/jobs/{{ping-job-id}}",
+							"protocol": "https",
+							"host": [
+								"{{web-host}}"
+							],
+							"path": [
+								"v1",
+								"monitoring",
+								"jobs",
+								"{{ping-job-id}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "create a monitoring job",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"var body = JSON.parse(responseBody);",
+									"postman.setEnvironmentVariable(\"ping-job-id\", body.id);"
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "X-NSONE-Key",
+								"type": "text",
+								"value": "{{org-api-key}}"
+							},
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"notify_list\": null,\r\n    \"active\": true,\r\n    \"regions\": [\r\n        \"SJC\",\r\n        \"LGA\",\r\n        \"PDX\"\r\n    ],\r\n    \"config\": {\r\n        \"host\": \"1.1.1.1\"\r\n    },\r\n    \"job_type\": \"ping\",\r\n    \"region_scope\": \"fixed\",\r\n    \"name\": \"PING @ 1.1.1.1\",\r\n    \"frequency\": 25\r\n}"
+						},
+						"url": {
+							"raw": "https://{{web-host}}/v1/monitoring/jobs",
+							"protocol": "https",
+							"host": [
+								"{{web-host}}"
+							],
+							"path": [
+								"v1",
+								"monitoring",
+								"jobs"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "modify a monitoring job",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "X-NSONE-Key",
+								"type": "text",
+								"value": "{{org-api-key}}"
+							},
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"mute\": false,\r\n    \"notify_delay\": 0,\r\n    \"job_type\": \"ping\",\r\n    \"frequency\": 25,\r\n    \"rapid_recheck\": false,\r\n    \"region_scope\": \"fixed\",\r\n    \"id\": \"{{ping-job-id}}\",\r\n    \"notify_repeat\": 0,\r\n    \"notify_regional\": false,\r\n    \"regions\": [\r\n        \"SJC\",\r\n        \"LGA\",\r\n        \"PDX\"\r\n    ],\r\n    \"policy\": \"quorum\",\r\n    \"config\": {\r\n        \"host\": \"1.1.1.1\"\r\n    },\r\n    \"status\": {\r\n        \"global\": {\r\n            \"status\": \"pending\",\r\n            \"since\": 1591816662,\r\n            \"fail_set\": []\r\n        },\r\n        \"SJC\": {\r\n            \"status\": \"pending\",\r\n            \"since\": 1591816662,\r\n            \"fail_set\": []\r\n        },\r\n        \"LGA\": {\r\n            \"status\": \"pending\",\r\n            \"since\": 1591816662,\r\n            \"fail_set\": []\r\n        },\r\n        \"PDX\": {\r\n            \"status\": \"pending\",\r\n            \"since\": 1591816662,\r\n            \"fail_set\": []\r\n        }\r\n    },\r\n    \"notify_failback\": true,\r\n    \"rules\": [],\r\n    \"v2\": false,\r\n    \"v3\": true,\r\n    \"active\": true,\r\n    \"name\": \"PING @ 1.1.1.1\",\r\n    \"notes\": null\r\n}"
+						},
+						"url": {
+							"raw": "https://{{web-host}}/v1/monitoring/jobs/{{ping-job-id}}",
+							"protocol": "https",
+							"host": [
+								"{{web-host}}"
+							],
+							"path": [
+								"v1",
+								"monitoring",
+								"jobs",
+								"{{ping-job-id}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete a monitoring job",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "X-NSONE-Key",
+								"type": "text",
+								"value": "{{org-api-key}}"
+							},
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"mute\": false,\r\n    \"notify_delay\": 0,\r\n    \"job_type\": \"ping\",\r\n    \"frequency\": 25,\r\n    \"rapid_recheck\": false,\r\n    \"region_scope\": \"fixed\",\r\n    \"id\": \"{{ping-job-id}}\",\r\n    \"notify_repeat\": 0,\r\n    \"notify_regional\": false,\r\n    \"regions\": [\r\n        \"SJC\",\r\n        \"LGA\",\r\n        \"PDX\"\r\n    ],\r\n    \"policy\": \"quorum\",\r\n    \"config\": {\r\n        \"host\": \"1.1.1.1\"\r\n    },\r\n    \"status\": {\r\n        \"global\": {\r\n            \"status\": \"pending\",\r\n            \"since\": 1591816662,\r\n            \"fail_set\": []\r\n        },\r\n        \"SJC\": {\r\n            \"status\": \"pending\",\r\n            \"since\": 1591816662,\r\n            \"fail_set\": []\r\n        },\r\n        \"LGA\": {\r\n            \"status\": \"pending\",\r\n            \"since\": 1591816662,\r\n            \"fail_set\": []\r\n        },\r\n        \"PDX\": {\r\n            \"status\": \"pending\",\r\n            \"since\": 1591816662,\r\n            \"fail_set\": []\r\n        }\r\n    },\r\n    \"notify_failback\": true,\r\n    \"rules\": [],\r\n    \"v2\": false,\r\n    \"v3\": true,\r\n    \"active\": true,\r\n    \"name\": \"PING @ 1.1.1.1\",\r\n    \"notes\": null\r\n}"
+						},
+						"url": {
+							"raw": "https://{{web-host}}/v1/monitoring/jobs/{{ping-job-id}}",
+							"protocol": "https",
+							"host": [
+								"{{web-host}}"
+							],
+							"path": [
+								"v1",
+								"monitoring",
+								"jobs",
+								"{{ping-job-id}}"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "statistics",
+			"item": [
+				{
+					"name": "qps",
+					"item": [
+						{
+							"name": "get qps for an account",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "X-NSONE-Key",
+										"value": "{{org-api-key}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "https://{{web-host}}/v1/stats/qps\n",
+									"protocol": "https",
+									"host": [
+										"{{web-host}}"
+									],
+									"path": [
+										"v1",
+										"stats",
+										"qps\n"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "get qps for a zone",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "X-NSONE-Key",
+										"type": "text",
+										"value": "{{org-api-key}}"
+									}
+								],
+								"url": {
+									"raw": "https://{{web-host}}/v1/stats/qps/{{username}}.local\n",
+									"protocol": "https",
+									"host": [
+										"{{web-host}}"
+									],
+									"path": [
+										"v1",
+										"stats",
+										"qps",
+										"{{username}}.local\n"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "get qps for a record",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "X-NSONE-Key",
+										"type": "text",
+										"value": "{{org-api-key}}"
+									}
+								],
+								"url": {
+									"raw": "https://{{web-host}}/v1/stats/qps/{{username}}.local/{{username}}.local/AAAA\n",
+									"protocol": "https",
+									"host": [
+										"{{web-host}}"
+									],
+									"path": [
+										"v1",
+										"stats",
+										"qps",
+										"{{username}}.local",
+										"{{username}}.local",
+										"AAAA\n"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "get usage for an account",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-NSONE-Key",
+								"type": "text",
+								"value": "{{org-api-key}}"
+							}
+						],
+						"url": {
+							"raw": "https://{{web-host}}/v1/stats/usage?period=30d&aggregate=false&by_tier=false\n",
+							"protocol": "https",
+							"host": [
+								"{{web-host}}"
+							],
+							"path": [
+								"v1",
+								"stats",
+								"usage"
+							],
+							"query": [
+								{
+									"key": "period",
+									"value": "30d"
+								},
+								{
+									"key": "aggregate",
+									"value": "false"
+								},
+								{
+									"key": "by_tier",
+									"value": "false\n"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get stats by region",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-NSONE-Key",
+								"value": "{{org-api-key}}"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "https://{{web-host}}/v1/stats/region/usage?period=24h",
+							"protocol": "https",
+							"host": [
+								"{{web-host}}"
+							],
+							"path": [
+								"v1",
+								"stats",
+								"region",
+								"usage"
+							],
+							"query": [
+								{
+									"key": "period",
+									"value": "24h"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get stats by network",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-NSONE-Key",
+								"value": "{{org-api-key}}"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "https://{{web-host}}/v1/stats/network/usage?period=24h",
+							"protocol": "https",
+							"host": [
+								"{{web-host}}"
+							],
+							"path": [
+								"v1",
+								"stats",
+								"network",
+								"usage"
+							],
+							"query": [
+								{
+									"key": "period",
+									"value": "24h"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "dns",
+			"item": [
+				{
+					"name": "zones & records",
+					"item": [
+						{
+							"name": "get zone info",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "X-NSONE-Key",
+										"value": "{{org-api-key}}"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "https://{{web-host}}/v1/zones/domain.local",
+									"protocol": "https",
+									"host": [
+										"{{web-host}}"
+									],
+									"path": [
+										"v1",
+										"zones",
+										"domain.local"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "get record info",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "X-NSONE-Key",
+										"value": "{{org-api-key}}"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "https://{{web-host}}/v1/zones/domain.local/test1.domain.local/A",
+									"protocol": "https",
+									"host": [
+										"{{web-host}}"
+									],
+									"path": [
+										"v1",
+										"zones",
+										"domain.local",
+										"test1.domain.local",
+										"A"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "create new zone",
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "X-NSONE-Key",
+										"value": "{{org-api-key}}"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"zone\": \"test2.lab\",\n    \"nx_ttl\":3600,\n    \"networks\": [\n        283\n    ]\n}"
+								},
+								"url": {
+									"raw": "https://{{web-host}}/v1/zones/test2.lab",
+									"protocol": "https",
+									"host": [
+										"{{web-host}}"
+									],
+									"path": [
+										"v1",
+										"zones",
+										"test2.lab"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "create new secondary zone",
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "X-NSONE-Key",
+										"value": "{{org-api-key}}"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"zone\": \"test2.lab\",\n    \"nx_ttl\":3600,\n    \"networks\": [\n        283\n    ]\n}"
+								},
+								"url": {
+									"raw": "https://{{web-host}}/v1/zones/test2.lab",
+									"protocol": "https",
+									"host": [
+										"{{web-host}}"
+									],
+									"path": [
+										"v1",
+										"zones",
+										"test2.lab"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "create new zone by import",
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "X-NSONE-Key",
+										"value": "{{org-api-key}}"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "name",
+											"value": "",
+											"type": "text",
+											"disabled": true
+										},
+										{
+											"key": "zonefile",
+											"type": "file",
+											"src": "/Users/shabo/Documents/Customers/SAP/named/var/dns-config/dbs/1865.db"
+										}
+									]
+								},
+								"url": {
+									"raw": "https://{{web-host}}/v1/import/zonefile/_sites.sap.corp?async=true",
+									"protocol": "https",
+									"host": [
+										"{{web-host}}"
+									],
+									"path": [
+										"v1",
+										"import",
+										"zonefile",
+										"_sites.sap.corp"
+									],
+									"query": [
+										{
+											"key": "async",
+											"value": "true"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "update a zone",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "X-NSONE-Key",
+										"value": "{{org-api-key}}"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\"dnssec\": true}"
+								},
+								"url": {
+									"raw": "https://{{web-host}}/v1/zones/unknown.test",
+									"protocol": "https",
+									"host": [
+										"{{web-host}}"
+									],
+									"path": [
+										"v1",
+										"zones",
+										"unknown.test"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "update a A record",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "X-NSONE-Key",
+										"value": "{{org-api-key}}"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\"answers\": [\n        {\n            \"answer\": [\n                \"10.0.0.6\"\n            ] }\n]\n}"
+								},
+								"url": {
+									"raw": "https://{{web-host}}/v1/zones/domain.local/test1.domain.local/A",
+									"protocol": "https",
+									"host": [
+										"{{web-host}}"
+									],
+									"path": [
+										"v1",
+										"zones",
+										"domain.local",
+										"test1.domain.local",
+										"A"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "delete a zone",
+							"request": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "X-NSONE-Key",
+										"value": "{{org-api-key}}"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "https://{{web-host}}/v1/zones/unknown.test",
+									"protocol": "https",
+									"host": [
+										"{{web-host}}"
+									],
+									"path": [
+										"v1",
+										"zones",
+										"unknown.test"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "delete A record",
+							"request": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "X-NSONE-Key",
+										"value": "{{org-api-key}}"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "https://{{web-host}}/v1/zones/domain.local/api-test1.domain.local/A",
+									"protocol": "https",
+									"host": [
+										"{{web-host}}"
+									],
+									"path": [
+										"v1",
+										"zones",
+										"domain.local",
+										"api-test1.domain.local",
+										"A"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "create A record",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Response is OK\", function() {",
+											"    pm.response.to.have.status(200);",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "PUT",
+								"header": [
+									{
+										"key": "X-NSONE-Key",
+										"value": "{{org-api-key}}"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\"zone\": \"domain.local\", \n\"domain\": \"api-test1.domain.local\", \n\"type\": \"A\",\n\"tags\": {\"api\": \"true\"},\n\"answers\": [\n    {\"answer\": [\n        \"10.0.0.5\"\n        ]\n        }\n    ]\n}"
+								},
+								"url": {
+									"raw": "https://{{web-host}}/v1/zones/domain.local/api-test1.domain.local/A",
+									"protocol": "https",
+									"host": [
+										"{{web-host}}"
+									],
+									"path": [
+										"v1",
+										"zones",
+										"domain.local",
+										"api-test1.domain.local",
+										"A"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									""
+								]
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									""
+								]
+							}
+						}
+					]
+				},
+				{
+					"name": "get filtertypes",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-NSONE-Key",
+								"value": "{{org-api-key}}"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "https://{{web-host}}/v1/filtertypes",
+							"protocol": "https",
+							"host": [
+								"{{web-host}}"
+							],
+							"path": [
+								"v1",
+								"filtertypes"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get metadata types",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-NSONE-Key",
+								"value": "{{org-api-key}}"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "https://{{web-host}}/v1/metatypes",
+							"protocol": "https",
+							"host": [
+								"{{web-host}}"
+							],
+							"path": [
+								"v1",
+								"metatypes"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "import zone file",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "X-NSONE-Key",
+								"value": "{{org-api-key}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "$ORIGIN example.com.\r\n$TTL 86400\r\n@\tSOA\tdns1.example.com.\thostmaster.example.com. (\r\n\t\t2001062501 ; serial\r\n\t\t21600      ; refresh after 6 hours\r\n\t\t3600       ; retry after 1 hour\r\n\t\t604800     ; expire after 1 week\r\n\t\t86400 )    ; minimum TTL of 1 day\r\n;\r\n;\r\n\tNS\tdns1.example.com.\r\n\tNS\tdns2.example.com.\r\ndns1\tA\t10.0.1.1\r\n\tAAAA\taaaa:bbbb::1\r\ndns2\tA\t10.0.1.2\r\n\tAAAA\taaaa:bbbb::2\r\n;\r\n;\r\n@\tMX\t10\tmail.example.com.\r\n\tMX\t20\tmail2.example.com.\r\nmail\tA\t10.0.1.5\r\n\tAAAA\taaaa:bbbb::5\r\nmail2\tA\t10.0.1.6\r\n\tAAAA\taaaa:bbbb::6\r\n;\r\n;\r\n; This sample zone file illustrates sharing the same IP addresses for multiple services:\r\n;\r\nservices\tA\t10.0.1.10\r\n\t\tAAAA\taaaa:bbbb::10\r\n\t\tA\t10.0.1.11\r\n\t\tAAAA\taaaa:bbbb::11\r\n\r\nftp\tCNAME\tservices.example.com.\r\nwww\tCNAME\tservices.example.com.\r\n;\r\n;\r\n"
+						},
+						"url": {
+							"raw": "https://{{web-host}}/v1/import/zonefile/example.com?async=false",
+							"protocol": "https",
+							"host": [
+								"{{web-host}}"
+							],
+							"path": [
+								"v1",
+								"import",
+								"zonefile",
+								"example.com"
+							],
+							"query": [
+								{
+									"key": "async",
+									"value": "false"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get dns service networks",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-NSONE-Key",
+								"value": "{{cmddi-token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "https://{{web-host}}/v1/service?type=dns",
+							"protocol": "https",
+							"host": [
+								"{{web-host}}"
+							],
+							"path": [
+								"v1",
+								"service"
+							],
+							"query": [
+								{
+									"key": "type",
+									"value": "dns"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "pulsar",
+			"item": [
+				{
+					"name": "get routemaps",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-NSONE-Key",
+								"type": "text",
+								"value": "{{org-api-key}}"
+							}
+						],
+						"url": {
+							"raw": "https://{{web-host}}/v1/pulsar/routemaps\n",
+							"protocol": "https",
+							"host": [
+								"{{web-host}}"
+							],
+							"path": [
+								"v1",
+								"pulsar",
+								"routemaps\n"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get apps",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-NSONE-Key",
+								"type": "text",
+								"value": "{{org-api-key}}"
+							}
+						],
+						"url": {
+							"raw": "https://{{web-host}}/v1/pulsar/apps",
+							"protocol": "https",
+							"host": [
+								"{{web-host}}"
+							],
+							"path": [
+								"v1",
+								"pulsar",
+								"apps"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get pulsar decisions",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-NSONE-Key",
+								"type": "text",
+								"value": "{{org-api-key}}"
+							}
+						],
+						"url": {
+							"raw": "https://{{web-host}}/v1/pulsar/query/decision/customer\n",
+							"protocol": "https",
+							"host": [
+								"{{web-host}}"
+							],
+							"path": [
+								"v1",
+								"pulsar",
+								"query",
+								"decision",
+								"customer\n"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get pulsar decisions undetermined ",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-NSONE-Key",
+								"type": "text",
+								"value": "{{org-api-key}}"
+							}
+						],
+						"url": {
+							"raw": "https://{{web-host}}/v1/pulsar/query/decision/customer/undetermined\n",
+							"protocol": "https",
+							"host": [
+								"{{web-host}}"
+							],
+							"path": [
+								"v1",
+								"pulsar",
+								"query",
+								"decision",
+								"customer",
+								"undetermined\n"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ops | get pulsar dashboard",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-NSONE-Key",
+								"type": "text",
+								"value": "{{org-api-key}}"
+							}
+						],
+						"url": {
+							"raw": "https://{{web-host}}/v1/pulsar/dash\n",
+							"protocol": "https",
+							"host": [
+								"{{web-host}}"
+							],
+							"path": [
+								"v1",
+								"pulsar",
+								"dash\n"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Security",
+			"item": [
+				{
+					"name": "GET activity logs",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-NSONE-Key",
+								"value": "{{cmddi-token}}",
+								"type": "default"
+							}
+						],
+						"url": {
+							"raw": "https://{{web-host}}/v1/account/activity",
+							"protocol": "https",
+							"host": [
+								"{{web-host}}"
+							],
+							"path": [
+								"v1",
+								"account",
+								"activity"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "https://{{web-host}}/v1/service",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "X-NSONE-Key",
+						"value": "F4XxOCZCyE7IYv8y68cz",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://{{web-host}}/v1/service",
+					"protocol": "https",
+					"host": [
+						"{{web-host}}"
+					],
+					"path": [
+						"v1",
+						"service"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "https://{{web-host}}/v1/ops/service/defs/1",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "X-NSONE-Key",
+						"value": "Gn9suq6eQQKCrmzWcOHJsry7ci9r6R",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://{{web-host}}/v1/ops/service/defs/1",
+					"protocol": "https",
+					"host": [
+						"{{web-host}}"
+					],
+					"path": [
+						"v1",
+						"ops",
+						"service",
+						"defs",
+						"1"
+					]
+				},
+				"description": "Manual bootstrap stuff"
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					"pm.test(\"Response is OK\", function() {",
+					"    pm.response.to.have.status(200);",
+					"});"
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "web-host",
+			"value": "api.nsone.net"
+		},
+		{
+			"key": "operator-id",
+			"value": "",
+			"disabled": true
+		},
+		{
+			"key": "operator-api-key",
+			"value": "",
+			"disabled": true
+		},
+		{
+			"key": "operator-2fa-secret",
+			"value": "",
+			"disabled": true
+		},
+		{
+			"key": "operator-username",
+			"value": "johnsmith",
+			"disabled": true
+		},
+		{
+			"key": "operator-email",
+			"value": "jsmith@mycompany.net",
+			"disabled": true
+		},
+		{
+			"key": "org-id",
+			"value": "",
+			"disabled": true
+		},
+		{
+			"key": "org-name",
+			"value": "My Org",
+			"disabled": true
+		},
+		{
+			"key": "org-api-key-name",
+			"value": "Org API Key",
+			"disabled": true
+		},
+		{
+			"key": "org-api-key-id",
+			"value": "",
+			"disabled": true
+		},
+		{
+			"key": "org-api-key",
+			"value": "<your api token here>"
+		},
+		{
+			"key": "username",
+			"value": "johndoe",
+			"disabled": true
+		},
+		{
+			"key": "full-name",
+			"value": "John Doe",
+			"disabled": true
+		},
+		{
+			"key": "email",
+			"value": "jdoe@mycompany.net",
+			"disabled": true
+		},
+		{
+			"key": "invite-token",
+			"value": "",
+			"disabled": true
+		},
+		{
+			"key": "basic-auth-username",
+			"value": "ns1",
+			"disabled": true
+		},
+		{
+			"key": "basic-auth-password",
+			"value": "private",
+			"disabled": true
+		}
+	]
+}
